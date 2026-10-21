@@ -1,0 +1,25 @@
+# Single-container deployment (SQLite + local image storage).
+# 1. Set ADMIN_PASSWORD and SESSION_SECRET (e.g. in a .env file next to this).
+# 2. docker compose up -d --build
+# 3. Open http://localhost:3000 and sign in with ADMIN_PASSWORD.
+
+services:
+  app:
+    build: .
+    image: surgeryscreen-lite
+    ports:
+      - "3000:3000"
+    environment:
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:?set ADMIN_PASSWORD}
+      SESSION_SECRET: ${SESSION_SECRET:?set SESSION_SECRET}
+      SITE_URL: ${SITE_URL:-}
+      DATABASE_DRIVER: sqlite
+      STORAGE_DRIVER: local
+      DATA_DIR: /data
+      MAX_UPLOAD_MB: ${MAX_UPLOAD_MB:-25}
+    volumes:
+      - surgeryscreen-data:/data
+    restart: unless-stopped
+
+volumes:
+  surgeryscreen-data:

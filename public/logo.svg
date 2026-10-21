@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2070 377" role="img" aria-label="SurgeryScreen">
+  <style>.f{fill:#131922}@media (prefers-color-scheme:dark){.f{fill:#f0f2f4}}</style>
+  <path class="f" fill-rule="evenodd" d="M45,0 H420 A45,45 0 0 1 465,45 V270 A45,45 0 0 1 420,315 H45 A45,45 0 0 1 0,270 V45 A45,45 0 0 1 45,0 Z M45,24 H420 A21,21 0 0 1 441,45 V270 A21,21 0 0 1 420,291 H45 A21,21 0 0 1 24,270 V45 A21,21 0 0 1 45,24 Z M208,80 H258 V133 H310 V183 H258 V236 H208 V183 H157 V133 H208 Z M175,338 H292 L307,360 H160 Z M97,360 H368 A8,8 0 0 1 376,368 V369 A8,8 0 0 1 368,377 H97 A8,8 0 0 1 89,369 V368 A8,8 0 0 1 97,360 Z"/>
+  <text class="f" x="546" y="262" font-family="'Geist', 'Geist Sans', Inter, 'Segoe UI', system-ui, -apple-system, Arial, sans-serif" font-weight="600" font-size="256" letter-spacing="-8" textLength="1500" lengthAdjust="spacingAndGlyphs">SurgeryScreen</text>
+</svg>

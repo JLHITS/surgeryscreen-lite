@@ -1,0 +1,183 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/*
+ * SurgeryScreen design system.
+ * Calm, clinical, high-contrast. Tokens adapt automatically to the OS colour
+ * scheme; every component reads from these so theming stays consistent.
+ */
+
+:root {
+  --radius: 0.75rem;
+
+  --background: oklch(0.985 0.002 250);
+  --foreground: oklch(0.21 0.02 260);
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.21 0.02 260);
+
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.21 0.02 260);
+
+  --muted: oklch(0.965 0.004 250);
+  --muted-foreground: oklch(0.53 0.02 262);
+
+  --border: oklch(0.915 0.005 256);
+  --input: oklch(0.915 0.005 256);
+
+  --primary: oklch(0.55 0.19 264);
+  --primary-foreground: oklch(0.99 0 0);
+
+  --accent: oklch(0.955 0.015 264);
+  --accent-foreground: oklch(0.34 0.08 264);
+
+  --secondary: oklch(0.965 0.004 250);
+  --secondary-foreground: oklch(0.27 0.02 260);
+
+  --destructive: oklch(0.585 0.22 25);
+  --destructive-foreground: oklch(0.99 0 0);
+
+  --success: oklch(0.62 0.15 152);
+  --success-foreground: oklch(0.99 0 0);
+
+  --ring: oklch(0.55 0.19 264);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: oklch(0.17 0.012 264);
+    --foreground: oklch(0.96 0.004 250);
+
+    --card: oklch(0.21 0.014 264);
+    --card-foreground: oklch(0.96 0.004 250);
+
+    --popover: oklch(0.21 0.014 264);
+    --popover-foreground: oklch(0.96 0.004 250);
+
+    --muted: oklch(0.26 0.014 264);
+    --muted-foreground: oklch(0.7 0.02 262);
+
+    --border: oklch(0.3 0.014 264);
+    --input: oklch(0.32 0.014 264);
+
+    --primary: oklch(0.66 0.17 264);
+    --primary-foreground: oklch(0.16 0.02 264);
+
+    --accent: oklch(0.3 0.03 264);
+    --accent-foreground: oklch(0.92 0.02 264);
+
+    --secondary: oklch(0.26 0.014 264);
+    --secondary-foreground: oklch(0.92 0.004 250);
+
+    --destructive: oklch(0.62 0.21 25);
+    --destructive-foreground: oklch(0.99 0 0);
+
+    --success: oklch(0.68 0.15 152);
+    --success-foreground: oklch(0.16 0.02 264);
+
+    --ring: oklch(0.66 0.17 264);
+  }
+}
+
+/*
+ * The public website (front page, policies, sign-in) is always light and
+ * mostly white, whatever the visitor's colour scheme.
+ */
+.site-light {
+  color-scheme: light;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.21 0.02 260);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.21 0.02 260);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.21 0.02 260);
+  --muted: oklch(0.975 0.003 250);
+  --muted-foreground: oklch(0.5 0.02 262);
+  --border: oklch(0.92 0.004 256);
+  --input: oklch(0.9 0.005 256);
+  --primary: oklch(0.55 0.19 264);
+  --primary-foreground: oklch(0.99 0 0);
+  --accent: oklch(0.96 0.012 264);
+  --accent-foreground: oklch(0.34 0.08 264);
+  --secondary: oklch(0.97 0.003 250);
+  --secondary-foreground: oklch(0.27 0.02 260);
+  --destructive: oklch(0.585 0.22 25);
+  --destructive-foreground: oklch(0.99 0 0);
+  --success: oklch(0.62 0.15 152);
+  --success-foreground: oklch(0.99 0 0);
+  --ring: oklch(0.55 0.19 264);
+  /* Resolved here too: the base border rule's colour is otherwise fixed at
+     the root, which is dark for dark-mode visitors. */
+  --color-border: var(--border);
+  background: var(--background);
+  color: var(--foreground);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-ring: var(--ring);
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  body {
+    background: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  ::selection {
+    background: color-mix(in oklch, var(--primary) 25%, transparent);
+  }
+}
+
+/* Hide scrollbars where we want an uncluttered, kiosk-style surface. */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Circular slide-countdown ring (r=45 → circumference ≈ 283): sweeps the
+   stroke away over the slide's duration to show the time remaining. */
+@keyframes ss-slide-timer {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: 283px;
+  }
+}
